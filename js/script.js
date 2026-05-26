@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     let title = item.querySelector('.antiguo-title').innerText;
-                    openModal(imagesArray, title, "Serie de proyetos realizados a lo largo de la carrera, algounos son de caracter personal.");
+                    openModal(imagesArray, title, "Serie de proyetos realizados a lo largo de la carrera, algunos son de caracter personal.");
                 });
             });
 
