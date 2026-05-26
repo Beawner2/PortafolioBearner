@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     let title = item.querySelector('.antiguo-title').innerText;
-                    openModal(imagesArray, title, "Exploración y galería de proceso del proyecto.");
+                    openModal(imagesArray, title, "Serie de proyetos realizados a lo largo de la carrera, algounos son de caracter personal.");
                 });
             });
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let imgSrc = item.querySelector('img').src;
                     let title = item.querySelector('.overlay-title').innerText;
                     let descNode = item.querySelector('.overlay-desc');
-                    let desc = descNode ? descNode.innerText : "Detalles del proyecto en proceso.";
+                    let desc = descNode ? descNode.innerText : "Serie de proyetos realizados a lo largo de la carrera, algounos son de caracter personal.";
                     openModal(imgSrc, title, desc);
                 });
             });
