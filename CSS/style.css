@@ -111,46 +111,63 @@ footer {
 /* --- 1. LANDING PAGE --- */
 #inicio {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    column-gap: 2%;
-    padding: 80px 10% 0 10%;
+    column-gap: 4%;
+    padding: 80px 12% 0 12%;
     background-color: rgba(230, 232, 234, 0.92);
-    /* rgba basado en --fondo-claro */
 }
 
 .hero-text {
     flex: 1;
+    max-width: 560px;
     text-align: left;
-    padding-right: 50px;
+    padding-left: 4%;
+    padding-right: 20px;
 }
 
 .hero-text h1 {
-    font-size: 5rem;
+    font-size: 5.5rem;
     color: var(--fondo-oscuro);
     text-shadow: 4px 4px 0px var(--acento-primario);
-    margin-bottom: 15px;
-    line-height: 1.1;
+    margin-bottom: 12px;
+    line-height: 1.05;
+}
+
+.hero-text h2 {
+    font-size: 1.8rem;
+    color: var(--fondo-oscuro);
+    margin-bottom: 8px;
 }
 
 .hero-text p {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     color: var(--fondo-secundario);
     max-width: 500px;
+    line-height: 1.45;
 }
 
 .hero-image-container {
     flex: 1;
-    height: 80vh;
-    width: 1vh;
+    max-width: 650px;
+    height: 82vh;
     background-image: url(../Imagenes/Gamesengines.png);
-    background-size: contain ;
-    background-position: right;
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
     border-radius: 12px;
-
+    animation: flotarPersonaje 4s ease-in-out infinite;
+    will-change: transform;
 }
 
+@keyframes flotarPersonaje {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-22px);
+    }
+}
 /* --- CLASES DE SECCIÓN COMUNES --- */
 .section-padding {
     padding: 80px 10% 20px;
@@ -446,7 +463,6 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(62, 74, 89, 0.9);
-    /* rgba basado en --fondo-secundario */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -636,6 +652,201 @@ footer {
 
 .close-modal:hover {
     color: var(--acento-primario);
+}
+
+/* =========================================
+   SECCIÓN DEMO INTERACTIVA WEBXR (MICTLÁN)
+   ========================================= */
+
+.webxr-container {
+    width: 90vw;
+    max-width: 1400px;
+    height: 75vh;
+    min-height: 500px;
+    margin: 2rem auto 0;
+    border: 2px solid var(--acento-primario);
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.webxr-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.webxr-cover {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.85)),
+                url('../Imagenes/Prácticas/Captura de pantalla 2026-05-25 210724.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.webxr-cover h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.webxr-cover p {
+    font-family: 'Karla', sans-serif;
+    color: #ddd;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.webxr-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-webxr-primary {
+    padding: 14px 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    background: var(--acento-primario);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-webxr-primary:hover {
+    background: var(--acento-secundario);
+    transform: translateY(-2px);
+}
+
+.btn-webxr-secondary {
+    padding: 14px 26px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 1px solid #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-webxr-secondary:hover {
+    background: #fff;
+    color: #000;
+}
+
+.webxr-controls {
+    width: 90vw;
+    max-width: 1400px;
+    margin: 12px auto 0;
+    display: none; /* Se activa desde JS al iniciar la demo */
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.webxr-fullscreen-link {
+    font-family: 'Karla', sans-serif;
+    color: var(--acento-secundario);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.webxr-fullscreen-link:hover {
+    text-decoration: underline;
+}
+
+.btn-webxr-close {
+    background: transparent;
+    border: 1px solid var(--acento-primario);
+    color: #fff;
+    padding: 6px 14px;
+    font-family: 'Karla', sans-serif;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
+
+.btn-webxr-close:hover {
+    background: var(--acento-primario);
+}
+
+.webxr-controls {
+    width: 90vw;
+    max-width: 1400px;
+    margin: 12px auto 0;
+    display: none; /* Se activa desde JS al iniciar la demo */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.webxr-volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Karla', sans-serif;
+    color: #fff;
+}
+
+.btn-webxr-mute {
+    background: transparent;
+    border: 1px solid var(--acento-primario);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-webxr-mute:hover {
+    background: var(--acento-primario);
+}
+
+#webxr-volume-slider {
+    width: 120px;
+    accent-color: var(--acento-primario);
+    cursor: pointer;
+}
+
+#webxr-volume-label {
+    min-width: 42px;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.webxr-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}   
+
+/* Ajuste responsivo para móviles */
+@media (max-width: 768px) {
+    .webxr-container {
+        width: 94vw;
+        height: 60vh;
+        min-height: 360px;
+    }
+
+    .webxr-cover h3 {
+        font-size: 2.2rem;
+    }
 }
 
 /* --- RESPONSIVO --- */
